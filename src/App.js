@@ -4,7 +4,11 @@ import {Chat} from './Components/Chats/Chats'
 import {Controls} from './Components/Controls/Controls'
 
 function App() {
-  const [message, setMessage] = useState(MESSAGES)
+  const [message, setMessage] = useState([])
+
+  function handleContentSend(content){
+    setMessage((prevMessages)=>[...prevMessages, {content,role:'user'}])
+  }
 
   return (
     <div className="App">
@@ -15,32 +19,9 @@ function App() {
     <div className='ChatContainer'>
       <Chat messages={message}/>
     </div>
-      <Controls />
+      <Controls onSend={handleContentSend}/>
     </div>
   );
 }
-
-const MESSAGES = [
-  {
-    'role': "assistant",
-    'content':
-      "orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-  },
-  {
-    'role': "user",
-    'content':
-      "orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-  },
-  {
-    'role': "assistant",
-    'content':
-      "orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-  },
-  {
-    'role': "user",
-    'content':
-      "orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-  }
-]
 
 export default App;
