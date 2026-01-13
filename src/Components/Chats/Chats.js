@@ -1,4 +1,4 @@
-import './Chat.css'
+import './Chats.css'
 export function Chat({ messages }) {
   return (
     <div className='Chat'>

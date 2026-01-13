@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import {Chat} from './components/Chats'
+import {Chat} from './Components/Chats/Chats'
+import {Controls} from './Components/Controls/Controls'
 
 function App() {
   const [message, setMessage] = useState(MESSAGES)
@@ -14,6 +15,7 @@ function App() {
     <div className='ChatContainer'>
       <Chat messages={message}/>
     </div>
+      <Controls />
     </div>
   );
 }
